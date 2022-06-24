@@ -32,6 +32,10 @@ class Favourites {
     add(id) {
         let favourites = this.getFavourites()
 
+        if (!favourites) {
+            favourites = []
+        }
+
         favourites.push(id)
         localStorage.setItem('favourites', JSON.stringify(favourites))
 
