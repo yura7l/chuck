@@ -1,0 +1,15 @@
+html, body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: normal;
+  font-size: $mobileFontSize;
+  line-height: $mobileLineHeight;
+  color: $mainText;
+  @include media-breakpoint-up(md) {
+    font-size: $tabletFontSize;
+    line-height: $tabletLineHeight;
+  }
+  @include media-breakpoint-up(lg) {
+    font-size: $desktopFontSize;
+    line-height: $desktopLineHeight;
+  }
+}

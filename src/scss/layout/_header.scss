@@ -1,0 +1,14 @@
+header {
+  padding: 20px 0;
+  @include media-breakpoint-up(md) {
+    padding: 40px 0;
+  }
+  .container {
+    max-width: calc(680px + var(--bs-gutter-x, 1.5rem));
+  }
+}
+.logo {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+}

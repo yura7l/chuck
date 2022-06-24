@@ -1,0 +1,25 @@
+.offcanvas {
+  @include media-breakpoint-up(lg) {
+    visibility: visible !important;
+    position: relative;
+    top: initial;
+    right: initial;
+    bottom: initial;
+    left: initial;
+    width: 100%;
+    transform: none;
+  }
+  &-end {
+    @include media-breakpoint-up(lg) {
+      border: none;
+    }
+  }
+  &-backdrop {
+    &.show {
+      @include media-breakpoint-up(lg) {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
+}

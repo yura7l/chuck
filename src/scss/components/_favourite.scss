@@ -1,0 +1,26 @@
+.favourite {
+  position: relative;
+  padding: 0 0 0 38px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  color: $greyText;
+  border: none;
+  background: transparent;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 28px;
+    height: 28px;
+    background: url("/src/img/svg/burger.svg") no-repeat center;
+    background-size: contain;
+    transform: translateY(-50%);
+  }
+  &--close {
+    &::before {
+      background-image: url("/src/img/svg/close.svg");
+    }
+  }
+}
