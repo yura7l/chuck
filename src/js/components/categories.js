@@ -7,12 +7,18 @@ class Categories {
 
             if (categories) {
                 const parent = document.querySelector('.categories')
-                categories.forEach(cat => {
+
+                categories.forEach((cat, i) => {
                     let input = document.createElement('input')
                     input.type = 'radio'
                     input.id = cat
                     input.name = 'categories'
                     input.value = cat
+
+                    if (i === 0) {
+                        input.checked = 'checked'
+                    }
+
                     parent.appendChild(input)
 
                     let label = document.createElement('label')
