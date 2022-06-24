@@ -1,0 +1,13 @@
+.search {
+  padding: 20px 0 10px;
+  input {
+    border: 2px solid $mainText;
+    border-radius: 10px;
+    @include placeholder {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 22px;
+      color: $greyText;
+    }
+  }
+}

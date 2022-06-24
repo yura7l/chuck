@@ -1,0 +1,33 @@
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  padding: 20px 0;
+  &__item {
+    padding: 6px 15px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: $greyText;
+    background: $mainBg;
+    border: 2px solid $greyBg;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all .3s;
+  }
+  input {
+    &[type=radio] {
+      display: none;
+      &:checked {
+        &+.categories__item {
+          color: $mainText;
+          background: $greyBg;
+        }
+      }
+    }
+  }
+}

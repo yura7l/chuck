@@ -47,7 +47,43 @@
                             <h2>Let’s try to find a joke for you:</h2>
                         </div>
                         <div class="filter">
-                            <div class="accordion filter__accordion" id="filter">
+                            <div class="filter__item">
+                                <input type="radio" id="random" name="filter" value="random" checked>
+                                <label for="random" class="filter__item-label">Random</label>
+                                <div class="filter__item-body" data-id="random"></div>
+                            </div>
+                            <div class="filter__item">
+                                <input type="radio" id="categories" name="filter" value="categories">
+                                <label for="categories" class="filter__item-label">From categories</label>
+                                <div class="filter__item-body" data-id="categories">
+                                    <div class="categories">
+                                        <input type="radio" id="animal" name="categories" value="animal" checked>
+                                        <label for="animal" class="categories__item">Animal</label>
+
+                                        <input type="radio" id="career" name="categories" value="career">
+                                        <label for="career" class="categories__item">Career</label>
+
+                                        <input type="radio" id="celebrity" name="categories" value="celebrity">
+                                        <label for="celebrity" class="categories__item">Celebrity</label>
+
+                                        <input type="radio" id="dev" name="categories" value="dev">
+                                        <label for="dev" class="categories__item">Dev</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter__item">
+                                <input type="radio" id="search" name="filter" value="search">
+                                <label for="search" class="filter__item-label">Search</label>
+                                <div class="filter__item-body" data-id="search">
+                                    <div class="search">
+                                        <label class="w-100">
+                                            <input type="text" class="form-control w-100" id="searchInput" placeholder="Free text search...">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--<div class="accordion filter__accordion" id="filter">
                                 <div class="accordion-item filter__accordion-item">
                                     <h2 class="accordion-header filter__accordion-header" id="random">
                                         <button class="accordion-button filter__accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#randomBody" aria-expanded="true" aria-controls="randomBody">
@@ -84,14 +120,14 @@
                                     <div id="searchBody" class="accordion-collapse collapse filter__accordion-collapse" aria-labelledby="categories" data-bs-parent="#filter">
                                         <div class="accordion-body filter__accordion-body">
                                             <div class="search">
-                                                <label>
-                                                    <input type="text" class="form-control" id="searchInput">
+                                                <label class="w-100">
+                                                    <input type="text" class="form-control w-100" id="searchInput" placeholder="Free text search...">
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                         <div class="submit mt-3 mb-4">
                             <button type="submit" class="btn btn-primary">Get a joke</button>
