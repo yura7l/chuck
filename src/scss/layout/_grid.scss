@@ -1,6 +1,7 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr;
+  padding: 0 0 50px;
   @include media-breakpoint-up(lg) {
     grid-template-columns: 1fr 480px;
   }

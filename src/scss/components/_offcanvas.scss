@@ -1,18 +1,24 @@
 .offcanvas {
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+  background-color: $greyBg;
+  @include media-breakpoint-up(sm) {
+    width: 480px;
+  }
+  @include media-breakpoint-up(md) {
+    padding: 40px;
+  }
   @include media-breakpoint-up(lg) {
     visibility: visible !important;
-    position: relative;
     top: initial;
     right: initial;
     bottom: initial;
     left: initial;
-    width: 100%;
     transform: none;
   }
   &-end {
-    @include media-breakpoint-up(lg) {
-      border: none;
-    }
+    border: none;
   }
   &-backdrop {
     &.show {
@@ -20,6 +26,19 @@
         opacity: 0;
         pointer-events: none;
       }
+    }
+  }
+  &-header {
+    padding: 0;
+    justify-content: end;
+    @include media-breakpoint-up(lg) {
+      justify-content: start;
+    }
+  }
+  &-body {
+    padding: 40px 0 0;
+    @include media-breakpoint-up(md) {
+      padding: 20px 0 0;
     }
   }
 }
