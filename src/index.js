@@ -30,3 +30,5 @@ button.addEventListener('click', (e) => {
         jokes.search(query)
     }
 })
+
+jokes.renderFavourites()

@@ -7,9 +7,10 @@ class Jokes {
     async random () {
         try {
             const joke = (await axios.get(`https://api.chucknorris.io/jokes/random`)).data
+            const parent = document.querySelector('#jokes')
 
             if (joke) {
-                this.render(joke)
+                this.render(joke, parent)
             }
         } catch (error) {
             this.error()
@@ -19,9 +20,10 @@ class Jokes {
     async category(cat) {
         try {
             const joke = (await axios.get(`https://api.chucknorris.io/jokes/random?category=${cat}`)).data
+            const parent = document.querySelector('#jokes')
 
             if (joke) {
-                this.render(joke)
+                this.render(joke, parent)
             }
         } catch (error) {
             this.error()
@@ -31,10 +33,11 @@ class Jokes {
     async search(query) {
         try {
             const jokes = (await axios.get(`https://api.chucknorris.io/jokes/search?query=${query}`)).data.result
+            const parent = document.querySelector('#jokes')
 
             if (jokes.length) {
                 jokes.forEach(joke => {
-                    this.render(joke)
+                    this.render(joke, parent)
                 })
             } else {
                 this.empty()
@@ -44,9 +47,7 @@ class Jokes {
         }
     }
 
-    render(data) {
-        const parent = document.querySelector('#jokes')
-
+    render(data, parent) {
         // Main container
         let item = document.createElement('div')
         item.classList.add('jokes__item')
@@ -57,7 +58,7 @@ class Jokes {
         heart.href = 'javascript:void(0);'
         heart.classList.add('jokes__item-heart')
         heart.onclick = function () {
-            favourites.action(data.id)
+            favourites.action(data)
         };
         if (favourites.isInFavourites(data.id)) {
             heart.classList.add('active')
@@ -130,6 +131,17 @@ class Jokes {
         let p = document.createElement('p')
         p.innerHTML = 'Oops, something went wrong'
         parent.appendChild(p)
+    }
+
+    renderFavourites() {
+        const saved = favourites.getFavourites()
+        const parent = document.querySelector('.jokes--favourite')
+
+        if (saved && saved.length) {
+            saved.forEach(item => {
+                this.render(item, parent)
+            })
+        }
     }
 }
 

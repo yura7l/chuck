@@ -1,9 +1,9 @@
 class Favourites {
-    action(id) {
-        if (this.isInFavourites(id)) {
-            this.remove(id)
+    action(item) {
+        if (this.isInFavourites(item.id)) {
+            this.remove(item.id)
         } else {
-            this.add(id)
+            this.add(item)
         }
     }
 
@@ -15,7 +15,7 @@ class Favourites {
         }
 
         for(let i = 0; i < favourites.length; i++) {
-            if(favourites[i] === id) {
+            if(favourites[i].id === id) {
                 return true
             }
         }
@@ -29,32 +29,32 @@ class Favourites {
         return JSON.parse(favourites)
     }
 
-    add(id) {
+    add(item) {
         let favourites = this.getFavourites()
 
         if (!favourites) {
             favourites = []
         }
 
-        favourites.push(id)
+        favourites.push(item)
         localStorage.setItem('favourites', JSON.stringify(favourites))
 
-        let item = document.querySelector(`[data-id="${id}"]`)
-        item.querySelector('.jokes__item-heart').classList.add('active')
+        let element = document.querySelector(`[data-id="${item.id}"]`)
+        element.querySelector('.jokes__item-heart').classList.add('active')
     }
 
     remove(id) {
         let favourites = this.getFavourites()
 
         for(let i = 0; i < favourites.length; i++){
-            if (favourites[i] === id) {
+            if (favourites[i].id === id) {
                 favourites.splice(i, 1);
             }
         }
         localStorage.setItem('favourites', JSON.stringify(favourites))
 
-        let item = document.querySelector(`[data-id="${id}"]`)
-        item.querySelector('.jokes__item-heart').classList.remove('active')
+        let element = document.querySelector(`[data-id="${id}"]`)
+        element.querySelector('.jokes__item-heart').classList.remove('active')
     }
 }
 
